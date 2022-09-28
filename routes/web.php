@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,10 +15,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [BlogController::class, 'index']);
-Route::get('post/{slug}', [BlogController::class, 'show']);
-
-
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
+Route::get('/', [BlogController::class, 'index']);
+Route::get('/contacts', function(){
+    return view('theme::contacts');
+});
+Route::get('post/{slug}', [BlogController::class, 'show']);
+Route::get('{slug}', [PageController::class, 'show']);
+
+
+

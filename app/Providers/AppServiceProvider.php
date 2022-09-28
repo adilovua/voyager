@@ -25,5 +25,6 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Paginator::useBootstrapFive();
+        $this->app['view']->addNamespace('theme', base_path().'/resources/themes/'.config('theme.id'));
     }
 }
