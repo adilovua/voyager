@@ -19,9 +19,8 @@ Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
 Route::get('/', [BlogController::class, 'index']);
-Route::get('/contacts', function(){
-    return view('theme::contacts');
-});
+Route::get('/gallery', [PageController::class, 'gallery']);
+Route::view('/contacts', 'theme::contacts');
 Route::get('post/{slug}', [BlogController::class, 'show']);
 Route::get('{slug}', [PageController::class, 'show']);
 

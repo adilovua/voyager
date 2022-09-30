@@ -1,4 +1,4 @@
-@extends('Layouts.main')
+@extends('theme::Layouts.main')
 
 @section('title', 'page not found')
 
